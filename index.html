@@ -7,78 +7,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700&family=Poppins:wght@300;400;600&display=swap');
-
-        :root { 
-            --cor-fundo: #f2e4d8; 
-            --cor-texto: #5d4037; 
-            --cor-caixa: #ffffff; 
-            --cor-botao: #8d6e63; 
-        }
-
+        :root { --cor-fundo: #f2e4d8; --cor-texto: #5d4037; --cor-caixa: #ffffff; --cor-botao: #8d6e63; }
         body { margin: 0; background-color: var(--cor-fundo); font-family: 'Poppins', sans-serif; color: var(--cor-texto); }
-
-        /* REDES SOCIAIS */
+        
         .redes-sociais { position: fixed; top: 25px; left: 20px; display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
         .icone-social { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--cor-fundo); background-color: var(--cor-texto); text-decoration: none; font-size: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
         .page { display: none; flex-direction: column; align-items: center; padding: 20px; min-height: 100vh; }
         #home { display: flex; }
-
         .logo-header { margin-top: 40px; width: 150px; margin-bottom: 20px; }
         .logo-header img { width: 100%; }
 
-        /* DESIGN DO CARD: TEXTO ESQUERDA | FOTO DIREITA */
         .card-produto {
-            display: flex;
-            background: var(--cor-caixa);
-            border-radius: 35px; /* Bordas bem curvas conforme o desenho */
-            max-width: 650px;
-            width: 95%;
-            margin-bottom: 25px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-            min-height: 200px;
+            display: flex; background: var(--cor-caixa); border-radius: 35px;
+            max-width: 650px; width: 95%; margin-bottom: 25px; overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06); min-height: 200px;
         }
-
-        .texto-produto { 
-            flex: 1.2; 
-            padding: 25px; 
-            text-align: left; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-        }
-
-        .texto-produto h3 { font-family: 'Playfair Display', serif; margin: 0; font-size: 1.4rem; color: var(--cor-texto); }
-        .texto-produto p { font-size: 0.9rem; margin: 12px 0; line-height: 1.5; color: #7a5c52; }
+        .texto-produto { flex: 1.2; padding: 25px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+        .texto-produto h3 { font-family: 'Playfair Display', serif; margin: 0; font-size: 1.4rem; }
+        .texto-produto p { font-size: 0.9rem; margin: 12px 0; line-height: 1.5; }
         .info-valor { font-weight: 600; color: var(--cor-botao); font-size: 1.1rem; }
-
-        /* Lado azul do seu desenho (espaço da foto) */
-        .foto-container { 
-            flex: 0.8; 
-            background: #d1d1d1; /* Cor de fundo enquanto você organiza as fotos */
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-        }
-        
+        .foto-container { flex: 0.8; background: #d1d1d1; display: flex; align-items: center; justify-content: center; }
         .foto-container img { width: 100%; height: 100%; object-fit: cover; }
 
-        .btn-acao { background-color: var(--cor-botao); color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 20px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* SELETOR */
+        .btn-acao { background-color: var(--cor-botao); color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
         .capa-display { width: 280px; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.12); margin: 25px 0; }
         .capa-display img { width: 100%; display: block; }
         .controles { display: flex; align-items: center; gap: 20px; }
 
-        @media (max-width: 600px) {
-            .card-produto { flex-direction: column-reverse; } /* Foto em cima no mobile para não espremer */
-            .foto-container { height: 200px; width: 100%; }
-        }
+        @media (max-width: 600px) { .card-produto { flex-direction: column-reverse; } .foto-container { height: 200px; width: 100%; } }
     </style>
 </head>
 <body>
-
     <div class="redes-sociais">
         <a href="https://wa.me/5521980277529" target="_blank" class="icone-social"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.instagram.com/ludocurasemaisoficial" target="_blank" class="icone-social"><i class="fab fa-instagram"></i></a>
@@ -86,11 +46,11 @@
 
     <section id="home" class="page">
         <div class="logo-header"><img src="SITE_CLIENTE/logo.png.png"></div>
-        <div style="background: white; padding: 30px; border-radius: 35px; display: flex; align-items: center; max-width: 650px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+        <div style="background: white; padding: 30px; border-radius: 35px; display: flex; align-items: center; max-width: 650px;">
             <img src="SITE_CLIENTE/luana_estrela.png.png" style="width: 130px; border-radius: 20px; margin-right: 25px;">
             <div style="text-align: left;">
-                <h3 style="font-family: 'Playfair Display'; margin: 0; font-size: 1.5rem;">Quem Sou</h3>
-                <p style="font-size: 0.9rem; line-height: 1.6;"><i>Olá! Sou a Luana Almeida...</i></p>
+                <h3 style="font-family: 'Playfair Display'; margin: 0;">Quem Sou</h3>
+                <p><i>Olá! Sou a Luana Almeida...</i></p>
             </div>
         </div>
         <button class="btn-acao" onclick="ir('seletor-page')">Veja nosso cardápio</button>
@@ -98,82 +58,45 @@
 
     <section id="seletor-page" class="page">
         <div class="logo-header"><img src="SITE_CLIENTE/logo.png.png"></div>
-        <h2 style="font-family: 'Playfair Display'; color: var(--cor-texto);">Escolha uma categoria</h2>
+        <h2 style="font-family: 'Playfair Display';">Escolha uma categoria</h2>
         <div class="controles">
             <button onclick="mudar(-1)" class="btn-acao" style="padding: 10px 20px;">&#10094;</button>
             <div class="capa-display"><img id="img-capa" src="SITE_CLIENTE/capa_gourmet.png.png"></div>
             <button onclick="mudar(1)" class="btn-acao" style="padding: 10px 20px;">&#10095;</button>
         </div>
-        <h3 id="txt-cat" style="font-size: 1.4rem;">Linha Gourmet</h3>
+        <h3 id="txt-cat">Linha Gourmet</h3>
         <button class="btn-acao" onclick="abrirProdutos()">Ver Delícias</button>
-        <p style="cursor:pointer; text-decoration:underline; margin-top: 20px;" onclick="ir('home')">Voltar ao início</p>
     </section>
 
     <section id="produtos-page" class="page">
         <div class="logo-header"><img src="SITE_CLIENTE/logo.png.png"></div>
-        <h2 id="titulo-cat" style="font-family: 'Playfair Display'; margin-bottom: 30px;"></h2>
-        
-        <div id="lista-produtos" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-            </div>
-
-        <button class="btn-acao" onclick="ir('seletor-page')" style="margin-bottom: 40px;">Voltar às Categorias</button>
+        <h2 id="titulo-cat" style="font-family: 'Playfair Display';"></h2>
+        <div id="lista-produtos" style="width: 100%; display: flex; flex-direction: column; align-items: center;"></div>
+        <button class="btn-acao" onclick="ir('seletor-page')">Voltar</button>
     </section>
 
     <script>
         const pasta = "SITE_CLIENTE/";
-        const categorias = [
-            { nome: "Linha Gourmet", img: pasta + "capa_gourmet.png.png" },
-            { nome: "Linha Premium", img: pasta + "capa_premium.png.png" }
-        ];
-
-        // Produtos organizados com as descrições do seu PDF
+        const categorias = [{ nome: "Linha Gourmet", img: pasta + "capa_gourmet.png.png" }, { nome: "Linha Premium", img: pasta + "capa_premium.png.png" }];
+        
         const produtos = {
             "Linha Gourmet": [
-                { 
-                    n: "Chocolatudo", 
-                    d: "Casca de chocolate ao leite, com recheio de brigadeiro, coberto com granulê de chocolate e brigadeiros.", 
-                    p: "R$ 79,90 | 480g", 
-                    i: pasta + "capa_gourmet.png.png" 
-                },
-                { 
-                    n: "Oreo", 
-                    d: "Casca de chocolate ao leite com recheiro de brigadeiro de oreo, coberto com biscoito oreo triturado e mini oreos.", 
-                    p: "R$ 79,90 | 480g", 
-                    i: pasta + "capa_gourmet.png.png" 
-                },
-                { 
-                    n: "Ninho com Nutella", 
-                    d: "Casca de chocolate ao leite, com recheio de brigadeiro de leite ninho e nutella, coberto com leite ninho em pó e fios de nutella.", 
-                    p: "R$ 84,90 | 500g", 
-                    i: pasta + "capa_gourmet.png.png" 
-                }
+                { n: "Chocolatudo", d: "Casca de chocolate ao leite, com recheio de brigadeiro, coberto com granulê de chocolate e brigadeiros.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_chocolatudo.png" },
+                { n: "Oreo", d: "Casca de chocolate ao leite com recheiro de brigadeiro de oreo, coberto com biscoito oreo triturado e mini oreos.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_oreo.png" },
+                { n: "Ninho com Nutella", d: "Casca de chocolate ao leite, com recheio de brigadeiro de leite ninho e nutella, coberto com leite ninho em pó e fios de nutella.", p: "R$ 84,90 | 500g", i: pasta + "gourmet_ninho.png" }
             ]
         };
 
         let idx = 0;
         function ir(id) { document.querySelectorAll('.page').forEach(p => p.style.display = 'none'); document.getElementById(id).style.display = 'flex'; window.scrollTo(0,0); }
         function mudar(dir) { idx = (idx + dir + categorias.length) % categorias.length; document.getElementById('img-capa').src = categorias[idx].img; document.getElementById('txt-cat').innerText = categorias[idx].nome; }
-
         function abrirProdutos() {
             const cat = categorias[idx].nome;
             document.getElementById('titulo-cat').innerText = cat;
             const container = document.getElementById('lista-produtos');
             container.innerHTML = "";
-            
-            const lista = produtos[cat] || [];
-            lista.forEach(p => {
-                container.innerHTML += `
-                    <div class="card-produto">
-                        <div class="texto-produto">
-                            <h3>${p.n}</h3>
-                            <p>${p.d}</p>
-                            <span class="info-valor">${p.p}</span>
-                        </div>
-                        <div class="foto-container">
-                            <img src="${p.i}" alt="${p.n}">
-                        </div>
-                    </div>
-                `;
+            (produtos[cat] || []).forEach(p => {
+                container.innerHTML += `<div class="card-produto"><div class="texto-produto"><h3>${p.n}</h3><p>${p.d}</p><span class="info-valor">${p.p}</span></div><div class="foto-container"><img src="${p.i}"></div></div>`;
             });
             ir('produtos-page');
         }
