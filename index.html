@@ -33,7 +33,7 @@
         }
 
         .logo-header { margin-top: 50px; width: 180px; }
-        .logo-header img { width: 100%; }
+        .logo-header img { width: 100%; height: auto; }
 
         .sobre-mim-container {
             display: flex;
@@ -46,10 +46,10 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
         }
 
-        .luana-img { width: 200px; margin-right: 30px; }
+        .luana-img { width: 200px; margin-right: 30px; height: auto; border-radius: 20px; }
         .sobre-texto h2 { font-family: 'Playfair Display', serif; margin-top: 0; }
 
-        /* --- PÁGINA 2: SELETOR (Escondida inicialmente) --- */
+        /* --- PÁGINA 2: SELETOR --- */
         #seletor-page {
             display: none; 
             flex-direction: column;
@@ -63,7 +63,7 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            max-width: 500px;
+            max-width: 450px;
             width: 100%;
         }
 
@@ -73,12 +73,12 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
         }
 
         .capa-display img {
             width: 100%;
             display: block;
+            transition: opacity 0.3s ease;
         }
 
         .seta {
@@ -93,12 +93,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.2s;
+            transition: 0.3s;
         }
 
         .seta:hover { background: var(--cor-texto); }
 
-        /* BOTÕES GERAIS */
         .btn-acao {
             background-color: var(--cor-botao);
             color: white;
@@ -114,7 +113,9 @@
 
         @media (max-width: 600px) {
             .sobre-mim-container { flex-direction: column; text-align: center; }
-            .luana-img { margin-right: 0; margin-bottom: 20px; }
+            .luana-img { margin-right: 0; margin-bottom: 20px; width: 150px; }
+            .carousel-container { gap: 10px; }
+            .seta { width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -125,7 +126,7 @@
             <img src="logo.png" alt="Logo Lu Almeida">
         </div>
         <div class="sobre-mim-container">
-            <img src="luana_estrela.png" class="luana-img" alt="Luana Almeida">
+            <img src="foto_luana.png" class="luana-img" alt="Luana Almeida">
             <div class="sobre-texto">
                 <h2>Quem Sou</h2>
                 <p><i>Olá! Sou a Luana Almeida. Baiana que há quase 20 anos foi adotada por Niterói...</i></p>
@@ -135,7 +136,7 @@
     </section>
 
     <section id="seletor-page">
-        <h2 style="font-family: 'Playfair Display';">Escolha uma categoria</h2>
+        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Escolha uma categoria</h2>
         
         <div class="carousel-container">
             <button class="seta" onclick="mudarCapa(-1)">&#10094;</button>
@@ -148,11 +149,11 @@
         </div>
 
         <button class="btn-acao" id="btn-entrar">Entrar nesta categoria</button>
-        <p style="margin-top: 20px; cursor: pointer; text-decoration: underline;" onclick="voltarHome()">Voltar</p>
+        <p style="margin-top: 20px; cursor: pointer; text-decoration: underline;" onclick="voltarHome()">Voltar ao Início</p>
     </section>
 
     <script>
-        // Lista das capas (Páginas 3, 5, 8 e 10 do PDF)
+        // LISTA DE ARQUIVOS (Mude o nome das fotos no GitHub para estes nomes)
         const categorias = [
             { nome: "Linha Gourmet", img: "capa_gourmet.png" },
             { nome: "Linha Premium", img: "capa_premium.png" },
@@ -165,11 +166,13 @@
         function abrirCardapio() {
             document.getElementById('home').style.display = 'none';
             document.getElementById('seletor-page').style.display = 'flex';
+            window.scrollTo(0,0);
         }
 
         function voltarHome() {
             document.getElementById('seletor-page').style.display = 'none';
             document.getElementById('home').style.display = 'flex';
+            window.scrollTo(0,0);
         }
 
         function mudarCapa(direcao) {
@@ -180,17 +183,16 @@
 
             const imgElement = document.getElementById('imagem-capa');
             
-            // Efeito suave de troca
             imgElement.style.opacity = 0;
             setTimeout(() => {
                 imgElement.src = categorias[indiceAtual].img;
                 imgElement.alt = categorias[indiceAtual].nome;
                 imgElement.style.opacity = 1;
-            }, 200);
+            }, 250);
         }
 
         document.getElementById('btn-entrar').onclick = function() {
-            alert("Você escolheu: " + categorias[indiceAtual].nome + ". Próximo passo: mostrar os produtos desta categoria!");
+            alert("Entrando na categoria: " + categorias[indiceAtual].nome);
         };
     </script>
 
