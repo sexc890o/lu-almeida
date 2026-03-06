@@ -93,10 +93,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.3s;
         }
-
-        .seta:hover { background: var(--cor-texto); }
 
         .btn-acao {
             background-color: var(--cor-botao);
@@ -108,14 +105,11 @@
             text-transform: uppercase;
             cursor: pointer;
             margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(141, 110, 99, 0.3);
         }
 
         @media (max-width: 600px) {
             .sobre-mim-container { flex-direction: column; text-align: center; }
             .luana-img { margin-right: 0; margin-bottom: 20px; width: 150px; }
-            .carousel-container { gap: 10px; }
-            .seta { width: 40px; height: 40px; }
         }
     </style>
 </head>
@@ -123,10 +117,10 @@
 
     <section id="home">
         <div class="logo-header">
-            <img src="logo.png" alt="Logo Lu Almeida">
+            <img src="logo.png.png" alt="Logo Lu Almeida">
         </div>
         <div class="sobre-mim-container">
-            <img src="foto_luana.png" class="luana-img" alt="Luana Almeida">
+            <img src="foto_luana.png.png" class="luana-img" alt="Luana Almeida">
             <div class="sobre-texto">
                 <h2>Quem Sou</h2>
                 <p><i>Olá! Sou a Luana Almeida. Baiana que há quase 20 anos foi adotada por Niterói...</i></p>
@@ -136,29 +130,25 @@
     </section>
 
     <section id="seletor-page">
-        <h2 style="font-family: 'Playfair Display'; margin-bottom: 30px;">Escolha uma categoria</h2>
-        
+        <h2 style="font-family: 'Playfair Display';">Escolha uma categoria</h2>
         <div class="carousel-container">
             <button class="seta" onclick="mudarCapa(-1)">&#10094;</button>
-            
             <div class="capa-display">
-                <img id="imagem-capa" src="capa_gourmet.png" alt="Linha Gourmet">
+                <img id="imagem-capa" src="capa_gourmet.png.png" alt="Linha Gourmet">
             </div>
-            
             <button class="seta" onclick="mudarCapa(1)">&#10095;</button>
         </div>
-
         <button class="btn-acao" id="btn-entrar">Entrar nesta categoria</button>
-        <p style="margin-top: 20px; cursor: pointer; text-decoration: underline;" onclick="voltarHome()">Voltar ao Início</p>
+        <p style="margin-top: 20px; cursor: pointer; text-decoration: underline;" onclick="voltarHome()">Voltar</p>
     </section>
 
     <script>
-        // LISTA DE ARQUIVOS (Mude o nome das fotos no GitHub para estes nomes)
+        // LISTA COM OS NOMES DUPLICADOS .png.png
         const categorias = [
-            { nome: "Linha Gourmet", img: "capa_gourmet.png" },
-            { nome: "Linha Premium", img: "capa_premium.png" },
-            { nome: "Cestas Especiais", img: "capa_cestas.png" },
-            { nome: "Lembrei de Você", img: "capa_lembrancinhas.png" }
+            { nome: "Linha Gourmet", img: "capa_gourmet.png.png" },
+            { nome: "Linha Premium", img: "capa_premium.png.png" },
+            { nome: "Cestas Especiais", img: "capa_cestas.png.png" },
+            { nome: "Lembrei de Você", img: "capa_lembrancinhas.png.png" }
         ];
 
         let indiceAtual = 0;
@@ -166,35 +156,30 @@
         function abrirCardapio() {
             document.getElementById('home').style.display = 'none';
             document.getElementById('seletor-page').style.display = 'flex';
-            window.scrollTo(0,0);
         }
 
         function voltarHome() {
             document.getElementById('seletor-page').style.display = 'none';
             document.getElementById('home').style.display = 'flex';
-            window.scrollTo(0,0);
         }
 
         function mudarCapa(direcao) {
             indiceAtual += direcao;
-            
             if (indiceAtual < 0) indiceAtual = categorias.length - 1;
             if (indiceAtual >= categorias.length) indiceAtual = 0;
 
             const imgElement = document.getElementById('imagem-capa');
-            
             imgElement.style.opacity = 0;
             setTimeout(() => {
                 imgElement.src = categorias[indiceAtual].img;
                 imgElement.alt = categorias[indiceAtual].nome;
                 imgElement.style.opacity = 1;
-            }, 250);
+            }, 200);
         }
 
         document.getElementById('btn-entrar').onclick = function() {
-            alert("Entrando na categoria: " + categorias[indiceAtual].nome);
+            alert("Você escolheu: " + categorias[indiceAtual].nome);
         };
     </script>
-
 </body>
 </html>
