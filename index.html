@@ -3,183 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lu Almeida - Cardápio Interativo</title>
+    <title>Lu Almeida - Cardápio</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
-
-        :root {
-            --cor-fundo: #f2e4d8;
-            --cor-texto: #5d4037;
-            --cor-caixa: #ffffff;
-            --cor-botao: #8d6e63;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--cor-fundo);
-            font-family: 'Poppins', sans-serif;
-            color: var(--cor-texto);
-            overflow-x: hidden;
-        }
-
-        /* --- PÁGINA 1: HOME --- */
-        #home {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .logo-header { margin-top: 50px; width: 180px; }
-        .logo-header img { width: 100%; height: auto; }
-
-        .sobre-mim-container {
-            display: flex;
-            align-items: center;
-            background: var(--cor-caixa);
-            padding: 30px;
-            border-radius: 30px;
-            max-width: 700px;
-            margin-top: 30px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-
-        .luana-img { width: 200px; margin-right: 30px; height: auto; border-radius: 20px; }
-        .sobre-texto h2 { font-family: 'Playfair Display', serif; margin-top: 0; }
-
-        /* --- PÁGINA 2: SELETOR --- */
-        #seletor-page {
-            display: none; 
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .carousel-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            max-width: 450px;
-            width: 100%;
-        }
-
-        .capa-display {
-            flex: 1;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .capa-display img {
-            width: 100%;
-            display: block;
-            transition: opacity 0.3s ease;
-        }
-
-        .seta {
-            background: var(--cor-botao);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-acao {
-            background-color: var(--cor-botao);
-            color: white;
-            border: none;
-            padding: 18px 40px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 600px) {
-            .sobre-mim-container { flex-direction: column; text-align: center; }
-            .luana-img { margin-right: 0; margin-bottom: 20px; width: 150px; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap');
+        :root { --cor-fundo: #f2e4d8; --cor-texto: #5d4037; --cor-botao: #8d6e63; }
+        body { margin: 0; background: var(--cor-fundo); font-family: 'Poppins', sans-serif; color: var(--cor-texto); text-align: center; }
+        
+        /* HOME */
+        #home { padding: 40px 20px; }
+        .logo-header img { width: 150px; height: auto; margin-bottom: 20px; }
+        .card-sobre { background: white; padding: 25px; border-radius: 25px; max-width: 500px; margin: 0 auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .lu-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+        
+        /* SELETOR */
+        #seletor-page { display: none; padding: 40px 20px; }
+        .moldura { width: 280px; height: 380px; background: white; border-radius: 20px; margin: 20px auto; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; }
+        .moldura img { width: 100%; height: 100%; object-fit: cover; }
+        .controles { display: flex; align-items: center; justify-content: center; gap: 20px; }
+        
+        .btn { background: var(--cor-botao); color: white; border: none; padding: 15px 30px; border-radius: 50px; cursor: pointer; font-weight: 600; text-transform: uppercase; margin-top: 20px; }
+        .seta { background: var(--cor-botao); color: white; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <section id="home">
-        <div class="logo-header">
-            <img src="logo.png.png" alt="Logo Lu Almeida">
+        <div class="logo-header"><img src="logo.png" alt="Logo"></div>
+        <div class="card-sobre">
+            <img src="foto_luana.png" class="lu-img" alt="Luana">
+            <h2 style="font-family: 'Playfair Display';">Luana Almeida</h2>
+            <p>Seja bem-vindo ao meu cardápio de Páscoa!</p>
         </div>
-        <div class="sobre-mim-container">
-            <img src="foto_luana.png.png" class="luana-img" alt="Luana Almeida">
-            <div class="sobre-texto">
-                <h2>Quem Sou</h2>
-                <p><i>Olá! Sou a Luana Almeida. Baiana que há quase 20 anos foi adotada por Niterói...</i></p>
-            </div>
-        </div>
-        <button class="btn-acao" onclick="abrirCardapio()">Veja nosso cardápio</button>
+        <button class="btn" onclick="irPara('seletor-page')">Ver Cardápio</button>
     </section>
 
     <section id="seletor-page">
-        <h2 style="font-family: 'Playfair Display';">Escolha uma categoria</h2>
-        <div class="carousel-container">
-            <button class="seta" onclick="mudarCapa(-1)">&#10094;</button>
-            <div class="capa-display">
-                <img id="imagem-capa" src="capa_gourmet.png.png" alt="Linha Gourmet">
+        <h2 style="font-family: 'Playfair Display';">Escolha a Linha</h2>
+        <div class="controles">
+            <button class="seta" onclick="mudar(-1)">&#10094;</button>
+            <div class="moldura">
+                <img id="foto-capa" src="capa_gourmet.png">
             </div>
-            <button class="seta" onclick="mudarCapa(1)">&#10095;</button>
+            <button class="seta" onclick="mudar(1)">&#10095;</button>
         </div>
-        <button class="btn-acao" id="btn-entrar">Entrar nesta categoria</button>
-        <p style="margin-top: 20px; cursor: pointer; text-decoration: underline;" onclick="voltarHome()">Voltar</p>
+        <h3 id="nome-cat">Linha Gourmet</h3>
+        <button class="btn">Entrar nesta categoria</button>
+        <p onclick="irPara('home')" style="text-decoration: underline; cursor: pointer; margin-top: 20px;">Voltar</p>
     </section>
 
     <script>
-        // LISTA COM OS NOMES DUPLICADOS .png.png
-        const categorias = [
-            { nome: "Linha Gourmet", img: "capa_gourmet.png.png" },
-            { nome: "Linha Premium", img: "capa_premium.png.png" },
-            { nome: "Cestas Especiais", img: "capa_cestas.png.png" },
-            { nome: "Lembrei de Você", img: "capa_lembrancinhas.png.png" }
+        const cats = [
+            {n: "Linha Gourmet", i: "capa_gourmet.png"},
+            {n: "Linha Premium", i: "capa_premium.png"},
+            {n: "Cestas Especiais", i: "capa_cestas.png"},
+            {n: "Lembrancinhas", i: "capa_lembrancinhas.png"}
         ];
+        let idx = 0;
 
-        let indiceAtual = 0;
-
-        function abrirCardapio() {
-            document.getElementById('home').style.display = 'none';
-            document.getElementById('seletor-page').style.display = 'flex';
+        function irPara(id) {
+            document.getElementById('home').style.display = (id === 'home') ? 'block' : 'none';
+            document.getElementById('seletor-page').style.display = (id === 'seletor-page') ? 'block' : 'none';
         }
 
-        function voltarHome() {
-            document.getElementById('seletor-page').style.display = 'none';
-            document.getElementById('home').style.display = 'flex';
+        function mudar(dir) {
+            idx = (idx + dir + cats.length) % cats.length;
+            document.getElementById('foto-capa').src = cats[idx].i;
+            document.getElementById('nome-cat').innerText = cats[idx].n;
         }
-
-        function mudarCapa(direcao) {
-            indiceAtual += direcao;
-            if (indiceAtual < 0) indiceAtual = categorias.length - 1;
-            if (indiceAtual >= categorias.length) indiceAtual = 0;
-
-            const imgElement = document.getElementById('imagem-capa');
-            imgElement.style.opacity = 0;
-            setTimeout(() => {
-                imgElement.src = categorias[indiceAtual].img;
-                imgElement.alt = categorias[indiceAtual].nome;
-                imgElement.style.opacity = 1;
-            }, 200);
-        }
-
-        document.getElementById('btn-entrar').onclick = function() {
-            alert("Você escolheu: " + categorias[indiceAtual].nome);
-        };
     </script>
 </body>
 </html>
