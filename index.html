@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lu Almeida - Cardápio Interativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap');
 
         :root {
             --cor-fundo: #f2e4d8;
-            --cor-texto: #5d4037;
+            --cor-texto: #5d4037; /* Cor escura principal */
             --cor-caixa: #ffffff;
             --cor-botao: #8d6e63;
         }
@@ -21,6 +22,38 @@
             font-family: 'Poppins', sans-serif;
             color: var(--cor-texto);
             overflow-x: hidden;
+        }
+
+        /* --- ÍCONES SOCIAIS ELEGANTES (CORES ESCURAS) --- */
+        .redes-sociais-vertical {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 1000;
+        }
+
+        .icone-social {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-fundo); /* Ícone na cor clara do fundo */
+            background-color: var(--cor-texto); /* Fundo no marrom escuro do site */
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(93, 64, 55, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .icone-social:hover { 
+            transform: translateX(5px);
+            background-color: var(--cor-botao);
         }
 
         /* --- PÁGINA 1: HOME --- */
@@ -48,7 +81,7 @@
 
         .luana-img { width: 200px; margin-right: 30px; height: auto; border-radius: 20px; }
         .sobre-texto h2 { font-family: 'Playfair Display', serif; margin-top: 0; }
-        .sobre-texto p { line-height: 1.6; font-size: 0.95rem; }
+        .sobre-texto p { line-height: 1.6; font-size: 0.95rem; text-align: left; }
 
         /* --- PÁGINA 2: SELETOR --- */
         #seletor-page {
@@ -112,10 +145,21 @@
         @media (max-width: 600px) {
             .sobre-mim-container { flex-direction: column; text-align: center; }
             .luana-img { margin-right: 0; margin-bottom: 20px; width: 150px; }
+            .sobre-texto p { text-align: center; }
+            .redes-sociais-vertical { top: 15px; left: 15px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="redes-sociais-vertical">
+        <a href="https://wa.me/5521980277529" target="_blank" class="icone-social" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/ludocurasemaisoficial?igsh=dGJicjlucXU1YWkz" target="_blank" class="icone-social" title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
 
     <section id="home">
         <div class="logo-header">
@@ -190,7 +234,8 @@
         }
 
         document.getElementById('btn-entrar').onclick = function() {
-            alert("Entrando na categoria: " + categorias[indiceAtual].nome);
+            const msg = "Olá Luana! Gostaria de ver os produtos da " + categorias[indiceAtual].nome;
+            window.open("https://wa.me/5521980277529?text=" + encodeURIComponent(msg), "_blank");
         };
     </script>
 
