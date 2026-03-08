@@ -25,7 +25,6 @@
         .logo-header { margin-top: 40px; width: 150px; margin-bottom: 20px; }
         .logo-header img { width: 100%; }
 
-        /* --- HOME (VOLTANDO AO ORIGINAL) --- */
         .sobre-mim-container {
             display: flex;
             align-items: center;
@@ -40,7 +39,6 @@
         .sobre-texto { text-align: left; }
         .sobre-texto h2 { font-family: 'Playfair Display', serif; margin-top: 0; }
 
-        /* --- CARDS DE PRODUTOS (DESIGN QUE VOCÊ DESENHOU) --- */
         .card-produto {
             display: flex;
             background: var(--cor-caixa);
@@ -56,12 +54,11 @@
         .texto-produto h3 { font-family: 'Playfair Display', serif; margin: 0; font-size: 1.3rem; }
         .texto-produto p { font-size: 0.85rem; margin: 10px 0; line-height: 1.4; }
         .info-valor { font-weight: 600; color: var(--cor-botao); font-size: 1.1rem; }
-        .foto-container { flex: 0.7; display: flex; align-items: center; justify-content: center; background: #eee; }
+        .foto-container { flex: 0.7; display: flex; align-items: center; justify-content: center; background: #f9f9f9; }
         .foto-container img { width: 100%; height: 100%; object-fit: cover; }
 
         .btn-acao { background-color: var(--cor-botao); color: white; border: none; padding: 15px 35px; border-radius: 50px; font-weight: 600; cursor: pointer; margin-top: 20px; text-transform: uppercase; }
 
-        /* SELETOR */
         .capa-display { width: 280px; border-radius: 30px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.12); margin: 25px 0; }
         .capa-display img { width: 100%; display: block; }
         .controles { display: flex; align-items: center; gap: 20px; }
@@ -117,20 +114,38 @@
         const pasta = "SITE_CLIENTE/";
         const categorias = [
             { nome: "Linha Gourmet", img: pasta + "capa_gourmet.png.png" },
-            { nome: "Linha Premium", img: pasta + "capa_premium.png.png" }
+            { nome: "Linha Premium", img: pasta + "capa_premium.png.png" },
+            { nome: "Cestas Especiais", img: pasta + "capa_cestas.png.png" },
+            { nome: "Lembrei de Você", img: pasta + "capa_lembrei.png.png" }
         ];
 
         const produtos = {
             "Linha Gourmet": [
                 { n: "Chocolatudo", d: "Casca de chocolate ao leite, com recheio de brigadeiro, coberto com granulê de chocolate e brigadeiros.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_chocolatudo.png.png" },
-                { n: "Oreo", d: "Casca de chocolate ao leite com recheiro de brigadeiro de oreo, coberto com biscoito oreo triturado e mini oreos.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_oreo.png.png" },
-                { n: "Ninho com Nutella", d: "Casca de chocolate ao leite, com recheio de brigadeiro de leite ninho e nutella, coberto com leite ninho em pó e fios de nutella.", p: "R$ 84,90 | 500g", i: pasta + "gourmet_ninho.png.png" }
+                { n: "Oreo", d: "Casca de chocolate ao leite com recheiro de brigadeiro de oreo, coberto com biscoito oreo triturado e brigadeiros de oreo.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_oreo.png.png" },
+                { n: "Ninho", d: "Casca de chocolate ao leite, com recheio de brigadeiro de ninho, coberto com granulê de chocolate branco e brigadeiros de ninho.", p: "R$ 79,90 | 480g", i: pasta + "gourmet_ninho.png.png" }
+            ],
+            "Linha Premium": [
+                { n: "Caixa de Bombons", d: "Bombons (40g) com casca de chocolate ao leite ou chocolate branco, com recheio de brigadeiro de chocolate e brigadeiro de ninho.", p: "R$ 62,90 | 240g", i: pasta + "caixa de bombons.png" },
+                { n: "Doces e Vinho", d: "Caixa de Brigadeiros Premium (25g) de chocolate e Ninho Trufado com recheio de Nutela. Acompanha uma garrafa de vinho chileno de mesa (187ml).", p: "R$ 74,90 | 150g", i: pasta + "doces e vinho.png" },
+                { n: "Ovo Kinder Bueno", d: "Casca de chocolate ao leite com recheio de brigadeiro de Kinder Bueno, coberto com Kinder Bueno triturado e um Kinder Bueno inteiro. Acompanha uma linda colher de inox dourada.", p: "R$ 89,90 | 350g", i: pasta + "ovo kinder bueno.png" },
+                { n: "Ovo Biscoff", d: "Casca de Chocolate Branco enriquecida com biscoito lotus triturado, com recheio duplo de chocolate e ninho, com uma camada superior de pasta crocante de biscoitos caramelizados (Lotus), biscoito Lotus triturado, e um biscoito Lotus para decorar. Acompanha uma linda colher de inox dourada.", p: "R$ 109,90 | 300g", i: pasta + "ovo biscoff.png" }
+            ],
+            "Cestas Especiais": [
+                { n: "Cesta Kids", d: "1 mini ovo (100g) decorado com confeitos coloridos e recheado com coelhinhos coloridos, 1 cenourinha de chocolate com recheio de brownie e brigadeiro, 120g de biscoitos amanteigados de páscoa, uma caneca de plástico (430ml) e uma linda pelúcia.", p: "R$ 74,90", i: pasta + "cesta kids.png" },
+                { n: "Cesta Feliz Páscoa", d: "1 mini ovo (100g) de chocolate com recheio de tablets de chocolate, 3 brownies recheados com brigadeiro gourmet, 120g de biscoitos amanteigados de páscoa, uma caneca de cerâmica (120ml), um sachê de cappuccino e uma colher de inox dourada.", p: "R$ 79,90", i: pasta + "cesta feliz páscoa.png" },
+                { n: "Cesta Feliz Páscoa (Religiosa)", d: "1 mini ovo (100g) de chocolate com recheio de tablets de chocolate, 3 brownies recheados com brigadeiro gourmet, 120g de biscoitos amanteigados com motivos religiosos, uma caneca de cerâmica com frase religiosa (325ml), um sachê de cappuccino e uma colher de inox dourada.", p: "R$ 84,90", i: pasta + "cesta feliz páscoa religiosa.png" }
+            ],
+            "Lembrei de Você": [
+                { n: "Caixa Mini Ovos e Brigadeiros", d: "Caixa com 2 mini ovos (50g cada) acompanhado de 6 brigadeiros gourmet (chocolate, ninho e oreo).", p: "R$ 48,90", i: pasta + "caixa mini ovos e brigadeiros.png" },
+                { n: "Caixa Degustação", d: "Caixa com 6 mini ovos de colher (50g cada) nos sabores: chocolate, ninho, oreo, kinder bueno, palha italiana e casadinho.", p: "R$ 56,90", i: pasta + "caixa de degustação.png" }
             ]
         };
 
         let idx = 0;
         function ir(id) { document.querySelectorAll('.page').forEach(p => p.style.display = 'none'); document.getElementById(id).style.display = 'flex'; window.scrollTo(0,0); }
         function mudar(dir) { idx = (idx + dir + categorias.length) % categorias.length; document.getElementById('img-capa').src = categorias[idx].img; document.getElementById('txt-cat').innerText = categorias[idx].nome; }
+        
         function abrirProdutos() {
             const cat = categorias[idx].nome;
             document.getElementById('titulo-cat').innerText = cat;
