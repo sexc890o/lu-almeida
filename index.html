@@ -158,7 +158,8 @@
         function mudar(dir) { idx = (idx + dir + categorias.length) % categorias.length; document.getElementById('img-capa').src = categorias[idx].img; document.getElementById('txt-cat').innerText = categorias[idx].nome; }
         
         function enviarWhatsApp(nomeProduto) {
-            const mensagem = `e aí LU !, tudo bem, vou estar querendo esse produto aqui: ${nomeProduto}`;
+            // Frase atualizada para ser mais direta
+            const mensagem = `Olá Luana, gostaria de encomendar o seguinte item do cardápio: ${nomeProduto}`;
             const link = `https://wa.me/${whatsappLu}?text=${encodeURIComponent(mensagem)}`;
             window.open(link, '_blank');
         }
